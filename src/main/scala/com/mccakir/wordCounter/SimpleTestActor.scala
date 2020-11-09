@@ -48,7 +48,6 @@ class SimpleTestActor extends Actor with ActorLogging {
         "longer space of time than three minutes and a quarter.")
       texts.foreach(text => masterActor ! text)
     case count: Int =>
-      println(s"new count is $count")
       context.become(countReceive(wordCount + count))
     case Print => log.info(s"Word count is: $wordCount")
   }
